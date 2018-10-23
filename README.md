@@ -1,2 +1,2 @@
 # JSAppSugar
-JSAppSugar是JavaScript的语法糖，通过语法糖实现原生代码与JS代码的混合编程，让iOS/Android原生应用开发者可以使用JavaScript语言开发同时运行在多端的App业务逻辑。
+JSAppSugar is a Syntactic Sugar for JavaScript. It enables App(iOS/Android) developers to develop cross platform business logic in JavaScript language.
