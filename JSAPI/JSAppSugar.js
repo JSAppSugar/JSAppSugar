@@ -13,11 +13,3 @@ define a JSA class
 @param {object} define
 */
 function $class(className,define){}
-
-
-/*
-Prints a String and then terminate the line.
-
-@param {string} s The string to be printed.
-*/
-function $log(s){}
