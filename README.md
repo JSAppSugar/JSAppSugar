@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+# JSAPPSugar
+JSAppSugar is a Syntactic Sugar for JavaScript. It enables App(iOS/Android) developers to develop cross platform business logic in JavaScript language. The primary goal of this project is to make the application development process simple, cheap, and of high quality.
 
-You can use the [editor on GitHub](https://github.com/JSAppSugar/JSAppSugar/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## QuickStart
+### Use JS Object In Objective-C
+```objective-c
+//initialize JSA4Cocoa
+JSA4Cocoa* jsa = [[JSA4Cocoa alloc]init];
+[jsa startEngine];
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+//create a JS Object
+id<JSAObject> jsObject = [jsa newClass:@"JSObject"];
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+//invoke methods on the object
+NSString* text = [jsObject invokeMethod:@"getText"];
 ```
+### Use JS Object In Java
+```java
+//initialize JSA4Java
+JSA4Java jsa = new JSA4Java();
+jsa.startEngine();
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+//create a JS Object
+JSAObject jsObject = jsa.newClass("JSObject");
 
-### Jekyll Themes
+//invoke methods on the object
+String text = (String)jsObject.invokeMethod("getText");
+```
+### Use Native Object In JavaScript
+```javascript
+//define the interface for native class
+$class("NativeObject",{
+  $implementation:{
+    $java : "JavaObject",//the name of a java class
+    $oc : "OCObject"//the name of a OC class
+  },
+  getText:{
+    $java : "getText",
+    $oc : "getText:"
+  }
+});
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JSAppSugar/JSAppSugar/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+//define a js class. Then you can use this class in JavaScript, Java and objective-c
+$class("JSObject",{
+  getText:function(){
+    //create a native object
+    var nativeObject = new NativeObject();
+    //invoke methods on the object
+    var text = nativeObject.getText("Hello");
+    return text;
+  }
+});
+```
+## Installation
+### iOS and Mac
+[JSA4Cocoa](https://github.com/JSAppSugar/JSA4Cocoa)
+### Android
+[JSA4Java](https://github.com/JSAppSugar/JSA4Java)
+# Document
+[中文](https://github.com/JSAppSugar/JSAppSugar/wiki)
