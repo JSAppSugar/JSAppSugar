@@ -2,9 +2,9 @@
 /*
 import a JSA class to use
 
-@param {[string]} classes JSA class names
+@param {string,...} classes JSA class names
 */
-function $import(classes){}
+function $import(classes,...){}
 
 /*
 define a JSA class
