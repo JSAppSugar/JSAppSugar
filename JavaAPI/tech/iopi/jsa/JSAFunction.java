@@ -23,6 +23,6 @@ public interface JSAFunction {
 	 * @param arguments The arguments to pass to the function.
 	 * @return The return value of the function call.
 	 */
-	public Object apply(Object thisObject,Object... arguments);
+	public Object apply(JSAObject thisObject,Object... arguments);
 	
 }

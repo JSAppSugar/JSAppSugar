@@ -6,6 +6,7 @@
 //  Copyright (c) 2018 Neal. All rights reserved.
 //
 
+@protocol JSAObject;
 
 /*!
  @protocol
@@ -34,7 +35,7 @@
  @param thisObject The value of this provided for the call to function
  @return The result of calling the function with the specified this value
  */
--(id) applyWithObject:(id)thisObject;
+-(id) applyWithObject:(id<JSAObject>)thisObject;
 
 /*!
  @method
@@ -43,7 +44,7 @@
  @param arguments The arguments to pass to the function.
  @return The result of calling the function with the specified this value
  */
--(id) applyWithObject:(id)thisObject Arguments:(NSArray *)arguments;
+-(id) applyWithObject:(id<JSAObject>)thisObject Arguments:(NSArray *)arguments;
 
 @end
 
