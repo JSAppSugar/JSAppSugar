@@ -13,3 +13,14 @@ define a JSA class
 @param {object} define
 */
 function $class(className,define){}
+
+/*
+create a native class
+
+@param {string} className The name of a native class
+@param {string} initMethod Only available for Objective-C
+@param {object,...} arguments Constructor function parameters
+
+@return jsa.NativeObject
+*/
+function $new(){className,initMethod,arg,...}
